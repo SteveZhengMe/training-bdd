@@ -15,5 +15,5 @@ def import_all_modules_from_directory(directory, package):
 
 
 # Import all modules from subdirectories of 'src'
-src_directory = os.path.join(os.path.dirname(__file__), "..", "..", "src")
-import_all_modules_from_directory(src_directory, "src")
+src_directory = os.path.join(os.path.dirname(__file__), "..", "..", "tests")
+import_all_modules_from_directory(src_directory, "tests")
