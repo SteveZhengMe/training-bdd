@@ -24,7 +24,7 @@ ML Batch feature has two scenarios, ETL the data and "send to inference model". 
 
 ### 3. Realtime Batch Feature
 
-Realtime Batch feature has two scenarios, send GET request and send POST request. See the file `features/ml_realtime.feature`.
+Realtime Batch feature has one scenarios, send POST request. See the file `features/ml_realtime.feature`.
 
 ## Folder Structure
 
