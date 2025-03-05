@@ -17,6 +17,7 @@ def configure_endpoint(context, endpoint_base_url, context_path):
 def send_data_to_model(context, category_name, name, status):
     request_body = {"category": {"name": category_name}, "name": name, "status": status}
     headers = {"accept": "application/json", "Content-Type": "application/json"}
+    # In the real work, send the REST request to API Gateway
     context.response = requests.post(
         context.endpoint_url, json=request_body, headers=headers
     )

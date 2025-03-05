@@ -1,5 +1,8 @@
 # Import all py files from src directory dynamically
 
+# please note: the default python code implementation is under /features/steps directory.
+# If we don't want to mix the feature files with the python code, like what I did in the demo, moving the python code to /tests/ folder, we need the dynamic import here.
+# But it will make the code complex and it doesn't follow the industry best practice. We can discuss it later.
 import importlib
 import os
 

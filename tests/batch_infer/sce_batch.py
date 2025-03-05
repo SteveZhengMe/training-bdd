@@ -14,6 +14,7 @@ def check_source_data_ready(context, source_file):
 def perform_infer(context, target_file):
     # initialize the BatchInfer class and call the infer method
     context.target_file = target_file
+    # In the real work, invoke the StepFunctions here.
     model = BatchInfer(context.source_data)
     model.infer(context.target_file)
 

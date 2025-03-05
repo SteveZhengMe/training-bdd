@@ -40,6 +40,7 @@ def add_inference_target(context):
 @when("I run ETL for training data to generate a csv file '{generated_file_name}'")
 def invoke_etl_class(context, generated_file_name):
     context.etl = Etl(context.source_csv_file)
+    # In the real work, deploy the image to ECS and run it.
     context.etl.derive_gender()
     context.etl.fix_age()
     context.output_file = generated_file_name

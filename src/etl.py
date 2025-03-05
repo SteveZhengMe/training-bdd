@@ -3,6 +3,10 @@ import random
 
 
 class Etl:
+    """
+    It is the ETL simulation. You don't need to waste time on it. In the real work, it will be replaced by Data Wranglling Application.
+    """
+
     def __init__(self, csv_file):
         self.data = []
         with open(csv_file, "r") as f:

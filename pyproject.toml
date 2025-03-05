@@ -1,6 +1,6 @@
 [project]
 name = "training-bdd"
-version = "0.1.0"
+version = "1.0.0"
 description = "The repo is for Behaviour Driven Development(BDD) training."
 authors = [
     {name = "Steve",email = "steve@email.com"}

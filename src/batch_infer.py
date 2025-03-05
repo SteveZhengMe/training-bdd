@@ -3,6 +3,10 @@ import csv
 
 
 class BatchInfer:
+    """
+    It is a model similation. You don't need to waste time on it. In the real work, it will be replaced by Inference Application.
+    """
+
     def __init__(self, source_data):
         # read the source data
         self.source_data = source_data

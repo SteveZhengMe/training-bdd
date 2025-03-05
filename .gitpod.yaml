@@ -1,3 +1,4 @@
+# Ignore this file if you are not using Gitpod
 image:
   file: .gitpod.Dockerfile
 

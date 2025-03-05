@@ -1,6 +1,9 @@
 Feature: Batch Inference Feature
 
+  # We don't need two scenarios in the real work. Because the ETL image and inference image are orchestrated by the StepFunctions.
+  # So in the real work, we will use boto3 to trigger the StepFunctions, and check the status of the StepFunctions and the output data file.
   Scenario: Data preparation (ETL)
+    # We don't need create synthetic data in the real work.
     Given The '120' records of synthetic data is generated with the columns name and age
     # Notice that there is no python code for the scenario, because we are reusing the code for etl.feature
     When I run ETL for training data to generate a csv file 'infer_data.csv'
