@@ -6,13 +6,13 @@ import random
 
 
 @given(
-    "The '{data_row_count}' records of synthetic data is generated with the columns name,age and frauld"
+    "The '{data_row_count}' records of synthetic data is generated with the columns name and age"
 )
 def prepare_testing_data(context, data_row_count):
     # Generate synthetic data and save to a CSV file
-    context.csv_file = "synthetic_data.csv"
+    context.source_csv_file = "synthetic_data.csv"
     data_row_count = int(data_row_count)
-    with open(context.csv_file, "w", newline="") as f:
+    with open(context.source_csv_file, "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(["name", "age", "frauld"])
         for i in range(data_row_count):
@@ -21,9 +21,25 @@ def prepare_testing_data(context, data_row_count):
             )
 
 
+@given("Adding the inferece target column frauld")
+def add_inference_target(context):
+    # add a column "frauld" to the csv file, the value is 0 or 1, save the file to context.source_csv_file
+    with open(context.source_csv_file, "r") as f:
+        reader = csv.reader(f)
+        header = next(reader)
+        data = list(reader)
+    header.append("frauld")
+    for row in data:
+        row.append(random.choice([0, 1]))
+    with open(context.source_csv_file, "w", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(header)
+        writer.writerows(data)
+
+
 @when("I run ETL for training data to generate a csv file '{generated_file_name}'")
 def invoke_etl_class(context, generated_file_name):
-    context.etl = Etl(context.csv_file)
+    context.etl = Etl(context.source_csv_file)
     context.etl.derive_gender()
     context.etl.fix_age()
     context.output_file = generated_file_name
