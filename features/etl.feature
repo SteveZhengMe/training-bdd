@@ -1,11 +1,13 @@
-Feature: Example feature
+Feature: ETL Feature
 
-  Scenario: Example scenario
-    Given I have a working Behave setup
-    When I run a test
-    Then I should see the test pass
-
-  Scenario: Example scenario 2
-    Given I have a working Behave setup 2
-    When I run a test 2
-    Then I should see the test pass 2
+  Scenario: ETL Training Data
+    Given The '100' records of synthetic data is generated with the_columns
+      | column_name | data_type |
+      | name        | varchar   |
+      | age         | int       |
+      | frauld      | int   |
+    When I run ETL for training data
+    Then I should see a csv file named: 'training_data.csv' is generated
+    Then The file should have '100' records
+    Then There are new column 'Gender' is created and the value is in ('0,1,2')
+    Then The age shoule less than '150' and more than '0'.
